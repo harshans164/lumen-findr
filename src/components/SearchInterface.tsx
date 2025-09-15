@@ -122,34 +122,13 @@ const SearchInterface = () => {
       {/* Top Search Bar - Moved up after search */}
       <div className="bg-card/90 backdrop-blur-sm border-b shadow-soft animate-fade-in-up">
         <div className="container mx-auto px-4 py-4 max-w-6xl">
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center">
             <div className="flex-1">
-              <Input
-                type="text"
-                placeholder="Enter your research query..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={handleKeyPress}
-                className="h-12 bg-background border-border focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth"
-              />
+              <div className="h-12 flex items-center gap-2 bg-background border border-border rounded-md px-4 text-foreground">
+                <Search size={18} className="text-muted-foreground" />
+                <span className="truncate">{query}</span>
+              </div>
             </div>
-            <Button
-              onClick={handleSearch}
-              disabled={!query.trim() || isSearching}
-              className="h-12 px-6 bg-gradient-primary hover:opacity-90 text-primary-foreground border-0 shadow-soft transition-smooth"
-            >
-              {isSearching ? (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Searching...
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <Search size={18} />
-                  Search
-                </div>
-              )}
-            </Button>
           </div>
         </div>
       </div>
